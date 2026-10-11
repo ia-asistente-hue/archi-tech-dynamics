@@ -1,5 +1,6 @@
 import { Metadata } from 'next/dist/lib/metadata/types/metadata-interface';
-import React from 'react';
+import React, { Suspense } from 'react';
+import ContactForm from './components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'ArchiTech Dynamics Solutions | SaaS & IA Studio',
@@ -11,32 +12,30 @@ export default function Home() {
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans selection:bg-[#2563EB] selection:text-white">
       
       {/* 1. Encabezado / Navegación Superior (Header) */}
-{/* 1. Encabezado / Navegación Superior (Header) */}
-<header className="bg-white border-b border-[#F1F5F9] sticky top-0 z-50">
-  <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-    <div className="flex items-center space-x-3">
-      {/* 🟢 SE QUITÓ scale-125 Y SE AJUSTÓ A h-12 md:h-16 PARA QUE NO SE SALGA DEL BORDE */}
-      <img 
-        src="/logo.png" 
-        alt="ArchiTech Dynamics Solutions" 
-        className="h-12 md:h-16 w-auto object-contain" 
-      />
-    </div>
-    <nav className="hidden md:flex items-center space-x-8 text-sm font-semibold text-[#1E293B]">
-      <a href="#inicio" className="hover:text-[#2563EB] transition-colors">Inicio</a>
-      <a href="#servicios" className="hover:text-[#2563EB] transition-colors">Servicios</a>
-      <a href="#medikai" className="hover:text-[#2563EB] transition-colors">MedikAI</a>
-      <a href="#blindPass" className="hover:text-[#2563EB] transition-colors">BlindPass</a>
-      <a href="#nosotros" className="hover:text-[#2563EB] transition-colors">Nosotros</a>
-      <a href="#contacto" className="hover:text-[#2563EB] transition-colors">Contacto</a>
-    </nav>
-    <div>
-      <a href="#contacto" className="px-5 py-2.5 rounded-full bg-[#2563EB] text-white font-semibold text-sm hover:bg-[#1D4ED8] transition-all shadow-md shadow-[#2563EB]/20">
-        Agendar Consulta
-      </a>
-    </div>
-  </div>
-</header>
+      <header className="bg-white border-b border-[#F1F5F9] sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/logo.png" 
+              alt="ArchiTech Dynamics Solutions" 
+              className="h-12 md:h-16 w-auto object-contain" 
+            />
+          </div>
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-semibold text-[#1E293B]">
+            <a href="#inicio" className="hover:text-[#2563EB] transition-colors">Inicio</a>
+            <a href="#servicios" className="hover:text-[#2563EB] transition-colors">Servicios</a>
+            <a href="#medikai" className="hover:text-[#2563EB] transition-colors">MedikAI</a>
+            <a href="#blindPass" className="hover:text-[#2563EB] transition-colors">BlindPass</a>
+            <a href="#nosotros" className="hover:text-[#2563EB] transition-colors">Nosotros</a>
+            <a href="#contacto" className="hover:text-[#2563EB] transition-colors">Contacto</a>
+          </nav>
+          <div>
+            <a href="/?service=consultoria#contacto" className="px-5 py-2.5 rounded-full bg-[#2563EB] text-white font-semibold text-sm hover:bg-[#1D4ED8] transition-all shadow-md shadow-[#2563EB]/20">
+              Agendar Consulta
+            </a>
+          </div>
+        </div>
+      </header>
 
       {/* 2. Sección Principal (Hero Section) */}
       <section id="inicio" className="relative overflow-hidden py-24 lg:py-32 bg-[#0F172A] text-white">
@@ -46,15 +45,16 @@ export default function Home() {
             Arquitectura Tecnológica e Innovación SaaS para la <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#3B82F6]">Evolución Digital</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-[#F1F5F9] max-w-2xl mx-auto font-light leading-relaxed mb-10">
-Diseñamos infraestructura de software escalable y automatizamos procesos complejos con Inteligencia Artificial, transformando la gestión operativa en salud, cumplimiento regulatorio y soluciones empresariales          </p>
+            Diseñamos infraestructura de software escalable y automatizamos procesos complejos con Inteligencia Artificial, transformando la gestión operativa en salud, cumplimiento regulatorio y soluciones empresariales
+          </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#contacto" className="px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
+            <a href="/?service=consultoria#contacto" className="px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
               Agendar Consultoría
             </a>
-            <a href="#contacto" className="px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
+            <a href="/?service=medikai#contacto" className="px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
               Conocer MedikAI
             </a>
-            <a href="#blindPass" className="px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
+            <a href="/?service=blindpass#contacto" className="px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
               Conocer BlindPass
             </a>
           </div>
@@ -121,115 +121,99 @@ Diseñamos infraestructura de software escalable y automatizamos procesos comple
                 <span>Reducción de hasta un 70% del tiempo administrativo del médico.</span>
               </li>
             </ul>
-            <a href="#contacto" className="inline-block px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
+            <a href="/?service=medikai#contacto" className="inline-block px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
               Solicitar Demo de MedikAI
             </a>
           </div>
           <div className="p-8 rounded-2xl bg-[#1E293B]/80 border border-[#3B82F6]/30 shadow-2xl">
-                  
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Plan Básico */}
-<div className="border-2 rounded-xl p-5 flex flex-col justify-between relative bg-white border-[#0052FF]/60">
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900">Plan Básico</h3>
-                    <p className="text-2xl font-extrabold text-slate-900 mt-1">
-                      $499 <span className="text-xs font-normal text-slate-500">MXN/mes</span>
-                    </p>
-                    <ul className="mt-3 space-y-1.5 text-xs text-slate-600">
-                      <li>✓ Expediente clínico electrónico</li>
-                      <li>✓ 150 Notas SOAP asistidas por IA</li>
-                      <li>✓ Prescripción médica estándar</li>
-                    </ul>
-                  </div>
-                  
-                </div>
-
-                {/* Plan Pro */}
-                <div className="border-2 rounded-xl p-5 flex flex-col justify-between relative bg-white border-[#0052FF]/60">
-                  <span className="absolute -top-2.5 right-4 bg-[#0052FF] text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold">
-                    RECOMENDADO
-                  </span>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900">Plan Pro</h3>
-                    <p className="text-2xl font-extrabold text-slate-900 mt-1">
-                      $799 <span className="text-xs font-normal text-slate-500">MXN/mes</span>
-                    </p>
-                    <ul className="mt-3 space-y-1.5 text-xs text-slate-600">
-                      <li>✓ Expediente clínico electrónico</li>
-                      <li>✓ 300 Notas SOAP asistidas por IA</li>
-                      <li>✓ Personalización de Recetas con Membrete</li>
-                    </ul>
-                  </div>
-                  
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="border-2 rounded-xl p-5 flex flex-col justify-between relative bg-white border-[#0052FF]/60">
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900">Plan Básico</h3>
+                  <p className="text-2xl font-extrabold text-slate-900 mt-1">
+                    $499 <span className="text-xs font-normal text-slate-500">MXN/mes</span>
+                  </p>
+                  <ul className="mt-3 space-y-1.5 text-xs text-slate-600">
+                    <li>✓ Expediente clínico electrónico</li>
+                    <li>✓ 150 Notas SOAP asistidas por IA</li>
+                    <li>✓ Prescripción médica estándar</li>
+                  </ul>
                 </div>
               </div>
-        
-
-            
+              <div className="border-2 rounded-xl p-5 flex flex-col justify-between relative bg-white border-[#0052FF]/60">
+                <span className="absolute -top-2.5 right-4 bg-[#0052FF] text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold">
+                  RECOMENDADO
+                </span>
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900">Plan Pro</h3>
+                  <p className="text-2xl font-extrabold text-slate-900 mt-1">
+                    $799 <span className="text-xs font-normal text-slate-500">MXN/mes</span>
+                  </p>
+                  <ul className="mt-3 space-y-1.5 text-xs text-slate-600">
+                    <li>✓ Expediente clínico electrónico</li>
+                    <li>✓ 300 Notas SOAP asistidas por IA</li>
+                    <li>✓ Personalización de Recetas con Membrete</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-{/* 5. Sección Producto Destacado (Featured Product: BlindPass) */}
+      {/* 5. Sección Producto Destacado (Featured Product: BlindPass) */}
       <section id="blindPass" className="py-24 bg-[#0F172A] text-white">
         <div className="max-w-7xl mx-auto px-6 grid gap-12 items-center">
           <div>
             <span className="px-5 py-2 rounded-full bg-[#1E293B] border border-[#3B82F6]/30 text-xs font-semibold text-[#3B82F6] mb-6 inline-block">
               Solución SaaS Propietaria
             </span>
-            {/* Título y subtítulo más explicativos */}
-  <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-    BlindPass: Cumplimiento Regulatorio y Prevención de Lavado de Dinero Automatizado
-  </h1>
-  <p className="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed">
-    ¿Qué es BlindPass? Es una plataforma inteligente diseñada para empresas e instituciones que automatiza la validación de clientes (KYC/KYB), detecta riesgos financieros en segundos y protege la operación legal de tu negocio frente a las regulaciones mexicanas.
-  </p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              BlindPass: Cumplimiento Regulatorio y Prevención de Lavado de Dinero Automatizado
+            </h1>
+            <p className="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed max-w-4xl">
+              ¿Qué es BlindPass? Es una plataforma inteligente diseñada para empresas e instituciones que automatiza la validación de clientes (KYC/KYB), detecta riesgos financieros en segundos y protege la operación legal de tu negocio frente a las regulaciones mexicanas.
+            </p>
 
-  {/* Lista de características claras para todo tipo de usuario */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-    
-    <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
-      <h3 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
-        <span className="text-[#0052FF]">🛡️</span> Expediente Único Digital (KYC/KYB)
-      </h3>
-      <p className="text-sm text-slate-400">
-        Integra y valida la identidad de personas físicas y morales de forma digital, rápida y segura mediante la verificación automática de sus documentos oficiales.
-      </p>
-    </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+                <h3 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
+                  <span className="text-[#0052FF]">🛡️</span> Expediente Único Digital (KYC/KYB)
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Integra y valida la identidad de personas físicas y morales de forma digital, rápida y segura mediante la verificación automática de sus documentos oficiales.
+                </p>
+              </div>
+              <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+                <h3 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
+                  <span className="text-[#0052FF]">🔍</span> Identificación de Beneficiario Controlador
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Mapea de forma automática las estructuras accionarias y detecta quiénes son los verdaderos dueños o controladores (con 25% o más de participación) de una empresa.
+                </p>
+              </div>
+              <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+                <h3 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
+                  <span className="text-[#0052FF]">📋</span> Screening en Listas Negras Oficiales
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Realiza consultas automáticas e inmediatas en las bases de datos más críticas: listas del SAT (Artículo 69-B), UIF, OFAC, ONU y registros de Personas Políticamente Expuestas (PEPs).
+                </p>
+              </div>
+              <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+                <h3 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
+                  <span className="text-[#0052FF]">🔒</span> Bóveda Inmutable (10 Años)
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Garantiza el cumplimiento legal con un sistema de sellado digital de tiempo (timestamping) que resguarda los expedientes en un historial de auditoría completamente inalterable.
+                </p>
+              </div>
+            </div> 
 
-    <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
-      <h3 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
-        <span className="text-[#0052FF]">🔍</span> Identificación de Beneficiario Controlador
-      </h3>
-      <p className="text-sm text-slate-400">
-        Mapea de forma automática las estructuras accionarias y detecta quiénes son los verdaderos dueños o controladores (con 25% o más de participación) de una empresa.
-      </p>
-    </div>
-
-    <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
-      <h3 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
-        <span className="text-[#0052FF]">📋</span> Screening en Listas Negras Oficiales
-      </h3>
-      <p className="text-sm text-slate-400">
-        Realiza consultas automáticas e inmediatas en las bases de datos más críticas: listas del SAT (Artículo 69-B), UIF, OFAC, ONU y registros de Personas Políticamente Expuestas (PEPs).
-      </p>
-    </div>
-
-    <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
-      <h3 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
-        <span className="text-[#0052FF]">🔒</span> Bóveda Inmutable (10 Años)
-      </h3>
-      <p className="text-sm text-slate-400">
-        Garantiza el cumplimiento legal con un sistema de sellado digital de tiempo (timestamping) que resguarda los expedientes en un historial de auditoría completamente inalterable.
-      </p>
-    </div>
-
-  </div> 
-            <a href="#contacto" className="inline-block px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
+            <a href="/?service=blindpass#contacto" className="inline-block px-8 py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/30">
               Solicitar Demo de BlindPass
             </a>
           </div>
-      
         </div>
       </section>
 
@@ -238,12 +222,11 @@ Diseñamos infraestructura de software escalable y automatizamos procesos comple
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">Sobre ArchiTech Dynamics Solutions</h2>
           <p className="text-[#64748B] font-light"><span className="text-[#0052FF]">Ingeniería de Software con Propósito y Visión de Futuro</span>.</p>
-        
         </div>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-400 leading-relaxed">
-          Somos una empresa de tecnología enfocada en el desarrollo de plataformas SaaS escalables, gobernanza operativa e integración avanzada de Inteligencia Artificial para transformar sectores clave como la salud y el cumplimiento financiero.
-        </p>
+            Somos una empresa de tecnología enfocada en el desarrollo de plataformas SaaS escalables, gobernanza operativa e integración avanzada de Inteligencia Artificial para transformar sectores clave como la salud y el cumplimiento financiero.
+          </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="p-8 bg-white border border-[#F1F5F9] rounded-2xl shadow-sm">
@@ -261,29 +244,12 @@ Diseñamos infraestructura de software escalable y automatizamos procesos comple
         </div>
       </section>
 
-      {/* 7. Formulario de Contacto & Llamado a la Acción Final (Footer CTA) */}
+      {/* 7. Formulario de Contacto */}
       <section id="contacto" className="py-24 bg-[#F1F5F9] border-t border-[#E2E8F0]">
         <div className="max-w-3xl mx-auto px-6 bg-white p-10 md:p-12 rounded-3xl shadow-lg border border-[#E2E8F0]">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] text-center mb-8">
-            ¿Listo para transformar la infraestructura de tu empresa?
-          </h2>
-          <form className="space-y-6">
-            <div>
-              <label className="block text-sm font-semibold text-[#1E293B] mb-2">Nombre completo</label>
-              <input type="text" placeholder="Tu nombre" className="w-full px-4 py-3 rounded-xl border border-[#CBD5E1] focus:border-[#2563EB] focus:outline-none transition-colors" />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-[#1E293B] mb-2">Correo electrónico corporativo</label>
-              <input type="email" placeholder="tu@empresa.com" className="w-full px-4 py-3 rounded-xl border border-[#CBD5E1] focus:border-[#2563EB] focus:outline-none transition-colors" />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-[#1E293B] mb-2">Mensaje / Descripción del proyecto</label>
-              <textarea rows={4} placeholder="Cuéntanos sobre tus requerimientos..." className="w-full px-4 py-3 rounded-xl border border-[#CBD5E1] focus:border-[#2563EB] focus:outline-none transition-colors"></textarea>
-            </div>
-            <button type="submit" className="w-full py-4 rounded-xl bg-[#2563EB] text-white font-semibold hover:bg-[#1D4ED8] transition-all shadow-lg shadow-[#2563EB]/20">
-              Enviar Mensaje
-            </button>
-          </form>
+          <Suspense fallback={<div className="text-center text-slate-500 py-6">Cargando formulario...</div>}>
+            <ContactForm />
+          </Suspense>
         </div>
       </section>
 
